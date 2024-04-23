@@ -1,10 +1,11 @@
 import { TextInput, TextInputProps, StyleSheet } from 'react-native';
+import { Colors, Radius, Fonts } from '../tokens';
 
 export function Input(props: TextInputProps) {
   return (
     <TextInput
       style={styles.input}
-      placeholderTextColor={'#afb2bf'}
+      placeholderTextColor={Colors.gray}
       {...props}
     />
   );
@@ -13,9 +14,11 @@ export function Input(props: TextInputProps) {
 const styles = StyleSheet.create({
   input: {
     height: 58,
-    backgroundColor: '#2e2d3d',
+    backgroundColor: Colors.violetDark,
     paddingHorizontal: 24,
-    borderRadius: 10,
+    borderRadius: Radius.r10,
     fontSize: 16,
+    color: Colors.gray,
+    fontFamily: Fonts.regular,
   },
 });

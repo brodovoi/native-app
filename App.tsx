@@ -7,6 +7,7 @@ import {
   Image,
 } from 'react-native';
 import { Input } from './shared/Input/Input';
+import { Colors, Gaps } from './shared/tokens';
 
 export default function App() {
   const width = Dimensions.get('window').width;
@@ -35,15 +36,15 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flex: 1,
     padding: 55,
-    backgroundColor: '#0c0c0c',
+    backgroundColor: Colors.black,
   },
   content: {
     alignItems: 'center',
-    gap: 50,
+    gap: Gaps.g50,
   },
   form: {
     alignSelf: 'stretch',
-    gap: 16,
+    gap: Gaps.g16,
   },
   input: {
     backgroundColor: '#2e2d3d',
