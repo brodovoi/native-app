@@ -8,6 +8,8 @@ import {
 } from 'react-native';
 import { Input } from './shared/Input/Input';
 import { Colors, Gaps } from './shared/tokens';
+import EyeOpenedIcon from './assets/icons/eye-opened';
+import EyeClosedIcon from './assets/icons/eye-closed';
 
 export default function App() {
   const width = Dimensions.get('window').width;

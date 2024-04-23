@@ -19,6 +19,6 @@ const styles = StyleSheet.create({
     borderRadius: Radius.r10,
     fontSize: 16,
     color: Colors.gray,
-    fontFamily: Fonts.regular,
+    // fontFamily: Fonts.regular,
   },
 });
