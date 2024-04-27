@@ -1,13 +1,32 @@
-import { Dimensions, StyleSheet, Text, View, Image } from 'react-native';
+import {
+  Dimensions,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Alert,
+  Platform,
+} from 'react-native';
 import { Input } from './shared/Input/Input';
 import { Colors, Gaps } from './shared/tokens';
 import { Button } from './shared/Button/Button';
+import { ErrorNotification } from './shared/ErrorNotification/ErrorNotification';
+import { useState } from 'react';
 
 export default function App() {
-  const width = Dimensions.get('window').width;
+  const [error, setError] = useState<string | undefined>('');
+
+  const alert = () => {
+    setError('Неверный логин или пароль.');
+
+    setTimeout(() => {
+      setError(undefined);
+    }, 4000);
+  };
 
   return (
     <View style={styles.container}>
+      <ErrorNotification error={error} />
       <View style={styles.content}>
         <Image
           style={styles.logo}
@@ -17,7 +36,7 @@ export default function App() {
         <View style={styles.form}>
           <Input placeholder="Email" />
           <Input isPassword placeholder="Password" />
-          <Button text="Войти" />
+          <Button text="Войти" onPress={alert} />
         </View>
         <Text>Восстановить пароль</Text>
       </View>
