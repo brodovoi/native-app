@@ -1,6 +1,7 @@
 import { Stack, Tabs } from 'expo-router';
 import { Colors } from '../shared/tokens';
 import { StatusBar } from 'expo-status-bar';
+import { useFonts } from 'expo-font';
 import {
   SafeAreaProvider,
   useSafeAreaInsets,
@@ -8,6 +9,15 @@ import {
 
 export default function RootRayout() {
   const insets = useSafeAreaInsets();
+
+  const [loaded, error] = useFonts({
+    'FiraSans-Regular': require('../assets/fonts/FiraSans-Regular.ttf'),
+    'FiraSans-SemiBold': require('../assets/fonts/FiraSans-SemiBold.ttf'),
+  });
+
+  if (!loaded) {
+    return null;
+  }
 
   return (
     <SafeAreaProvider>
