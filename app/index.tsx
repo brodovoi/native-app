@@ -12,7 +12,7 @@ import { Colors, Gaps } from '../shared/tokens';
 import { Button } from '../shared/Button/Button';
 import { ErrorNotification } from '../shared/ErrorNotification/ErrorNotification';
 import { useState } from 'react';
-import { Link } from 'expo-router';
+import { CustomLink } from '../shared/CustomLink/CustomLink';
 
 export default function Login() {
   const [error, setError] = useState<string | undefined>('');
@@ -39,7 +39,7 @@ export default function Login() {
           <Input isPassword placeholder="Password" />
           <Button text="Войти" onPress={alert} />
         </View>
-        <Link href={'/restores'}>Восстановить пароль</Link>
+        <CustomLink href={'/restore'} text="Восстановить пароль" />
       </View>
     </View>
   );

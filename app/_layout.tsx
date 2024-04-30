@@ -11,8 +11,6 @@ import { useEffect } from 'react';
 SplashScreen.preventAutoHideAsync();
 
 export default function RootRayout() {
-  const insets = useSafeAreaInsets();
-
   const [loaded, error] = useFonts({
     'FiraSans-Regular': require('../assets/fonts/FiraSans-Regular.ttf'),
     'FiraSans-SemiBold': require('../assets/fonts/FiraSans-SemiBold.ttf'),
@@ -42,7 +40,6 @@ export default function RootRayout() {
           statusBarColor: Colors.black,
           contentStyle: {
             backgroundColor: Colors.black,
-            paddingTop: insets.top,
           },
           headerShown: false,
         }}>
