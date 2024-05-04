@@ -7,6 +7,7 @@ import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { StyleSheet } from 'react-native';
 import { Text } from 'react-native';
 import { MenuButton } from '../../features/layout/ui/MenuButton/MenuButton';
+import { CustomDrawer } from '../../widget/layout/ui/CustomDrawer/CustomDrawer';
 
 export default function AppRayout() {
   // const { access_token } = useAtomValue(authAtom);
@@ -17,6 +18,7 @@ export default function AppRayout() {
   return (
     <GestureHandlerRootView style={styles.wrapper}>
       <Drawer
+        drawerContent={(props) => <CustomDrawer {...props} />}
         screenOptions={({ navigation }) => ({
           headerStyle: {
             backgroundColor: Colors.black,
