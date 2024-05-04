@@ -1,25 +1,15 @@
-import { useAtomValue, useSetAtom } from 'jotai';
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  ActivityIndicator,
-  RefreshControl,
-} from 'react-native';
+import { View, Text } from 'react-native';
+import { Button } from '../../shared/Button/Button';
+import { useSetAtom } from 'jotai';
 import { logoutAtom } from '../../entities/auth/model/auth.state';
-import { useEffect } from 'react';
 
 export default function MyCourses() {
   const logout = useSetAtom(logoutAtom);
 
-  useEffect(() => {
-    logout();
-  }, []);
-
   return (
     <View>
-      <Text>index</Text>
+      <Text>Выйти</Text>
+      <Button text="Выход" onPress={logout} />
     </View>
   );
 }
