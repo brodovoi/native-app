@@ -8,7 +8,7 @@ export default function MyCourses() {
 
   return (
     <View>
-      <Text>Выйти</Text>
+      <Text style={{ color: '#fff' }}>Выйти</Text>
       <Button text="Выход" onPress={logout} />
     </View>
   );

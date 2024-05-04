@@ -42,7 +42,10 @@ export default function Login() {
   }, [error]);
 
   useEffect(() => {
-    if (access_token) {
+    // if (access_token) {
+    //   router.replace('/(app)');
+    // }
+    if (!access_token) {
       router.replace('/(app)');
     }
   }, [access_token]);
