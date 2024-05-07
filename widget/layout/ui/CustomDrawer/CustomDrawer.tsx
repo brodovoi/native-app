@@ -2,15 +2,23 @@ import {
   DrawerContentComponentProps,
   DrawerContentScrollView,
 } from '@react-navigation/drawer';
-import { View, StyleSheet, Image, Text } from 'react-native';
+import { View, StyleSheet, Image } from 'react-native';
 import { Colors } from '../../../../shared/tokens';
 import { CustomLink } from '../../../../shared/CustomLink/CustomLink';
 import { CloseDrawer } from '../../../../features/layout/ui/CloseDrawer/CloseDrawer.ios';
 import { useAtom, useSetAtom } from 'jotai';
 import { logoutAtom } from '../../../../entities/auth/model/auth.state';
+import { loadProfileAtom } from '../../../../entities/user/model/user.state';
+import { useEffect } from 'react';
+import { UserMenu } from '../../../user/ui/UserMenu/UserMenu';
 
 export function CustomDrawer(props: DrawerContentComponentProps) {
   const logout = useSetAtom(logoutAtom);
+  const [profile, loadProfile] = useAtom(loadProfileAtom);
+
+  useEffect(() => {
+    loadProfile();
+  }, []);
 
   return (
     <DrawerContentScrollView
@@ -18,6 +26,8 @@ export function CustomDrawer(props: DrawerContentComponentProps) {
       contentContainerStyle={styles.scrollView}>
       <View style={styles.content}>
         <CloseDrawer {...props.navigation} />
+
+        <UserMenu user={profile.profile} />
       </View>
       <View style={styles.footer}>
         <CustomLink text="Выход" onPress={() => logout()} href={'/login'} />
